@@ -1,7 +1,7 @@
 FROM gcc:13 AS build
 WORKDIR /src
 COPY netproto.h server_common.h server_good.c server_leak.c server_shortread.c server_singlethread.c ./
-RUN for s in good leak crash shortread singlethread; do \
+RUN for s in good leak shortread singlethread; do \
       gcc -Wall -O2 -pthread -o server_$s server_$s.c; done
 
 FROM debian:stable-slim
