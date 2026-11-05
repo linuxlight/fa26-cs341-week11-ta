@@ -5,7 +5,7 @@
 set -u
 BIN_DIR="${BIN_DIR:-/app}"
 declare -A PORT=( [good]=14001 [leak]=14002 [shortread]=14003 [singlethread]=14004 )
-ORDER=(good leak crash shortread singlethread)
+ORDER=(good leak shortread singlethread)
 declare -A PID
 
 start() { "$BIN_DIR/server_$1" "${PORT[$1]}" & PID[$1]=$!; echo "started server_$1 on port ${PORT[$1]} (pid ${PID[$1]})"; }
