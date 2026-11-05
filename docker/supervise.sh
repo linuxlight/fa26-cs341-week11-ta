@@ -4,7 +4,7 @@
 # and Ctrl-C shut the container down cleanly and free the ports.
 set -u
 BIN_DIR="${BIN_DIR:-/app}"
-declare -A PORT=( [good]=14001 [leak]=14002 [crash]=14003 [shortread]=14004 [singlethread]=14005 )
+declare -A PORT=( [good]=14001 [leak]=14002 [shortread]=14003 [singlethread]=14004 )
 ORDER=(good leak crash shortread singlethread)
 declare -A PID
 

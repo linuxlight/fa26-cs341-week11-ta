@@ -10,8 +10,8 @@ for g in $(seq 1 "$N"); do
     gp=$((BASE + g*10))
     docker run -d --rm --name "chatlab-g$g" \
         -p "$((gp+1)):14001" -p "$((gp+2)):14002" -p "$((gp+3)):14003" \
-        -p "$((gp+4)):14004" -p "$((gp+5)):14005" "$IMG" >/dev/null
-    printf "group %2d  good=%d leak=%d crash=%d shortread=%d singlethread=%d\n" \
-        "$g" "$((gp+1))" "$((gp+2))" "$((gp+3))" "$((gp+4))" "$((gp+5))"
+        -p "$((gp+4)):14004" "$IMG" >/dev/null
+    printf "group %2d  good=%d leak=%d shortread=%d singlethread=%d\n" \
+        "$g" "$((gp+1))" "$((gp+2))" "$((gp+3))" "$((gp+4))" 
 done
 echo "containers up. students connect to this host at the ports above."
